@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f5f2">
+  <meta name="description" content="Consultá fortalezas, debilidades y efectividades de los 18 tipos Pokémon, incluso sin conexión.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+  <title>PokéTipos Offline</title>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div class="brand-line">
+        <span class="eyebrow">POKÉTIPOS OFFLINE</span>
+        <span id="connection-state" class="connection-state" role="status">Offline listo</span>
+      </div>
+      <h1>Tipos, de un vistazo.</h1>
+      <p class="intro">Elegí un tipo para ver sus fortalezas y debilidades.</p>
+    </header>
+
+    <section aria-label="Seleccionar tipo">
+      <div id="type-grid" class="type-grid" role="group" aria-label="18 tipos disponibles"></div>
+    </section>
+
+    <section class="details" aria-live="polite" aria-atomic="false">
+      <div class="selected-type">
+        <span id="selected-swatch" class="selected-swatch" aria-hidden="true"></span>
+        <h2 id="selected-name">Fuego</h2>
+      </div>
+      <div class="matchup-section">
+        <h3>Al atacar</h3>
+        <p id="attack-caption" class="section-caption"></p>
+        <div id="attack-groups" class="effect-groups"></div>
+      </div>
+      <div class="matchup-section">
+        <h3>Al defender</h3>
+        <p id="defense-caption" class="section-caption"></p>
+        <div id="defense-groups" class="effect-groups"></div>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <button id="install-button" class="install-button" type="button" hidden>Instalar PokéTipos Offline</button>
+      <p>Tabla clásica · Generación VI en adelante</p>
+      <p>Funciona sin conexión después de la primera visita.</p>
+      <div class="support-note">
+        <p>Si te gustó la app offline ☕</p>
+        <p>¿Te gustó el proyecto?</p>
+        <a href="https://ko-fi.com/martinmartinezgarcia" target="_blank" rel="noopener noreferrer">Podés apoyarme invitándome un café.</a>
+      </div>
+    </footer>
+  </main>
+  <script src="./app.js" defer></script>
+</body>
+</html>
