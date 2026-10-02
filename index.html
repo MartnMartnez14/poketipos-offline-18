@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f7f5f2">
+  <meta name="theme-color" content="#f4eef8">
   <meta name="description" content="Consultá fortalezas, debilidades y efectividades de los 18 tipos Pokémon, incluso sin conexión.">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
@@ -14,9 +14,15 @@
 <body>
   <main class="app-shell">
     <header class="app-header">
+      <div class="top-bar">
+        <div class="theme-switch" role="group" aria-label="Tema">
+          <button id="theme-light" type="button" class="theme-btn" aria-pressed="true">Claro</button>
+          <button id="theme-dark" type="button" class="theme-btn" aria-pressed="false">Nocturno</button>
+        </div>
+        <span id="connection-state" class="connection-state" role="status">Offline listo</span>
+      </div>
       <div class="brand-line">
         <span class="eyebrow">POKÉTIPOS OFFLINE</span>
-        <span id="connection-state" class="connection-state" role="status">Offline listo</span>
       </div>
       <h1>Tipos, de un vistazo.</h1>
       <p class="intro">Elegí un tipo para ver sus fortalezas y debilidades.</p>
@@ -29,7 +35,7 @@
     <section class="details" aria-live="polite" aria-atomic="false">
       <div class="selected-type">
         <span id="selected-swatch" class="selected-swatch" aria-hidden="true"></span>
-        <h2 id="selected-name">Fuego</h2>
+        <h2 id="selected-name">Normal</h2>
       </div>
       <div class="matchup-section">
         <h3>Al atacar</h3>

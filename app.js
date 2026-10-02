@@ -28,7 +28,7 @@ const defenseCaption = document.querySelector("#defense-caption");
 const attackGroups = document.querySelector("#attack-groups");
 const defenseGroups = document.querySelector("#defense-groups");
 const connectionState = document.querySelector("#connection-state");
-let selectedId = "fire";
+let selectedId = "normal";
 let deferredInstallPrompt;
 
 function matchup(attackerName, defenderName) {
@@ -111,7 +111,7 @@ function buildGroups(container, selectedType, view) {
 }
 
 function render() {
-  const selectedType = TYPES.find((type) => type.id === selectedId) ?? TYPES[1];
+  const selectedType = TYPES.find((type) => type.id === selectedId) ?? TYPES[0];
   selectedName.textContent = selectedType.name;
   selectedSwatch.style.backgroundColor = selectedType.color;
   attackCaption.textContent = `Movimientos de tipo ${selectedType.name.toLowerCase()}`;
@@ -147,6 +147,22 @@ window.addEventListener("offline", updateConnectionState);
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.addEventListener("controllerchange", updateConnectionState);
 }
+function applyTheme(theme) {
+  const next = theme === "dark" ? "dark" : "light";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("poketipos-theme", next);
+  const lightBtn = document.querySelector("#theme-light");
+  const darkBtn = document.querySelector("#theme-dark");
+  lightBtn.setAttribute("aria-pressed", String(next === "light"));
+  darkBtn.setAttribute("aria-pressed", String(next === "dark"));
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.content = next === "dark" ? "#1c1828" : "#f4eef8";
+}
+
+applyTheme(localStorage.getItem("poketipos-theme") || "light");
+document.querySelector("#theme-light").addEventListener("click", () => applyTheme("light"));
+document.querySelector("#theme-dark").addEventListener("click", () => applyTheme("dark"));
+
 updateConnectionState();
 render();
 

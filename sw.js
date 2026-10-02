@@ -1,4 +1,4 @@
-const CACHE_NAME = "poketipos-shell-v2";
+const CACHE_NAME = "poketipos-shell-v3";
 const APP_FILES = [
   "./",
   "./index.html",
